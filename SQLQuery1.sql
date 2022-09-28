@@ -59,3 +59,17 @@ where release_date like '%2020%'
 SELECT DISTINCT videogame_id
 FROM reviews
 where rating > 4
+
+-- 11- Selezionare il numero e la media delle recensioni 
+-- per il videogioco con ID = 412 (review number = 12, avg_rating = 3)
+
+SELECT COUNT(*) AS "NumeroRecensioni", AVG(rating) AS "MediaRecensioni"
+FROM reviews
+WHERE videogame_id = 412;
+
+-- 12- Selezionare il numero di videogame che la software house 
+-- con ID = 1 ha rilasciato nel 2018 (13)
+
+SELECT COUNT(*) AS "RilasciNel2018"
+FROM videogames
+WHERE software_house_id = 1 AND release_date like '%2018%'
