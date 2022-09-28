@@ -127,3 +127,20 @@ FROM reviews
 INNER JOIN players
 ON players.id = reviews.player_id;
  
+ -- 2- Sezionare tutti i videogame dei tornei tenuti nel 2016, 
+ -- mostrandoli una sola volta (226)
+
+ SELECT DISTINCT (videogames.id)
+ FROM videogames
+ INNER JOIN tournament_videogame
+ ON videogames.id = tournament_videogame.videogame_id
+ INNER JOIN tournaments 
+ ON tournament_videogame.tournament_id = tournaments.id
+ WHERE tournaments.year = 2016;
+ 
+ -- 3- Mostrare le categorie di ogni videogioco (1718)
+
+ SELECT *
+ FROM videogames
+ INNER JOIN category_videogame
+ ON category_videogame.category_id = videogames.id
