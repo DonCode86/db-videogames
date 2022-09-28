@@ -150,6 +150,8 @@ ON players.id = reviews.player_id;
  -- 4- Selezionare i dati di tutte le software house che 
  -- hanno rilasciato almeno un gioco dopo il 2020, mostrandoli una sola volta (6)
 
-SELECT *
+SELECT DISTINCT (software_house_id)
 FROM software_houses
 INNER JOIN videogames
+ON software_house_id = videogames.software_house_id
+WHERE YEAR(videogames.release_date) > 2020
