@@ -94,7 +94,9 @@ GROUP BY videogame_id
 
 -- 3- Contare quanti videogiochi hanno ciascuna classificazione PEGI 
 -- (della classificazione PEGI vogliamo solo l'ID) (13)
-
+SELECT COUNT (*)
+FROM pegi_label_videogame
+GROUP BY pegi_label_id
 
 -- 4- Mostrare il numero di videogiochi rilasciati ogni anno (11)
 
@@ -144,3 +146,10 @@ ON players.id = reviews.player_id;
  FROM videogames
  INNER JOIN category_videogame
  ON category_videogame.category_id = videogames.id
+
+ -- 4- Selezionare i dati di tutte le software house che 
+ -- hanno rilasciato almeno un gioco dopo il 2020, mostrandoli una sola volta (6)
+
+SELECT *
+FROM software_houses
+INNER JOIN videogames
