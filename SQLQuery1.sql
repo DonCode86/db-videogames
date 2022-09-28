@@ -24,3 +24,9 @@ where player_id = 800;
 SELECT *
 FROM tournaments
 where year = 2015;
+
+--6- Selezionare tutti i premi che contengono nella descrizione la parola 'facere' (2)
+
+SELECT *
+FROM awards
+where description like '%facere%';
