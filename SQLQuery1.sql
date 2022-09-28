@@ -163,3 +163,36 @@ SELECT *
 FROM awards
 INNER JOIN award_videogame
 ON awards.id = award_videogame.award_id
+
+-- 6- Selezionare categorie e classificazioni PEGI dei videogiochi 
+-- che hanno ricevuto recensioni da 4 e 5 stelle, mostrandole 
+-- una sola volta (3363)
+
+SELECT DISTINCT videogames.name AS "Videogame", categories.name AS "Categoria", pegi_labels.name AS "Pegi"
+FROM reviews
+INNER JOIN videogames
+ON videogames.id = reviews.videogame_id
+INNER JOIN category_videogame
+ON category_videogame.videogame_id = videogames.id
+INNER JOIN categories
+ON categories.id = category_videogame.category_id
+INNER JOIN pegi_label_videogame
+ON pegi_label_videogame.videogame_id = videogames.id
+INNER JOIN pegi_labels
+ON pegi_labels.id = pegi_label_videogame.pegi_label_id
+WHERE reviews.rating >= 4;
+
+-- 7- Selezionare quali giochi erano presenti nei tornei nei 
+-- quali hanno partecipato i giocatori il cui nome inizia per 'S' (474)
+
+SELECT DISTINCT videogames.name, videogames.id
+FROM players
+INNER JOIN player_tournament
+ON player_tournament.player_id = players.id
+INNER JOIN tournaments
+ON tournaments.id = player_tournament.tournament_id
+INNER JOIN tournament_videogame
+ON tournament_videogame.tournament_id = tournaments.id
+INNER JOIN videogames
+ON videogames.id = tournament_videogame.videogame_id
+WHERE players.name LIKE 's%';
