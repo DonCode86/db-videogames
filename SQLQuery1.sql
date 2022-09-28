@@ -18,3 +18,9 @@ where name like '%a';
 SELECT *
 FROM reviews
 where player_id = 800;
+
+-- 5- Contare quanti tornei ci sono stati nell'anno 2015 (9)
+
+SELECT *
+FROM tournaments
+where year = 2015;
