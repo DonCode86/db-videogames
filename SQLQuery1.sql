@@ -73,3 +73,21 @@ WHERE videogame_id = 412;
 SELECT COUNT(*) AS "RilasciNel2018"
 FROM videogames
 WHERE software_house_id = 1 AND release_date like '%2018%'
+
+
+
+
+-- -----------------------Query con group by ----------------------------
+
+-- 1- Contare quante software house ci sono per ogni paese (3)
+
+Select COUNT (*) AS "shPerPaese"
+FROM software_houses
+GROUP BY country
+
+-- 2- Contare quante recensioni ha ricevuto ogni videogioco 
+-- (del videogioco vogliamo solo l'ID) (500)
+
+SELECT COUNT (videogame_id)
+from reviews
+GROUP BY videogame_id
