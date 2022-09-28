@@ -155,3 +155,11 @@ FROM software_houses
 INNER JOIN videogames
 ON software_house_id = videogames.software_house_id
 WHERE YEAR(videogames.release_date) > 2020
+
+-- 5- Selezionare i premi ricevuti da ogni software house 
+-- per i videogiochi che ha prodotto (55)
+
+SELECT *
+FROM awards
+INNER JOIN award_videogame
+ON awards.id = award_videogame.award_id
