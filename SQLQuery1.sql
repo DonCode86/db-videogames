@@ -185,7 +185,7 @@ WHERE reviews.rating >= 4;
 -- 7- Selezionare quali giochi erano presenti nei tornei nei 
 -- quali hanno partecipato i giocatori il cui nome inizia per 'S' (474)
 
-SELECT DISTINCT videogames.name, videogames.id
+SELECT DISTINCT videogames.name AS "Nome", videogames.id AS "VideoGameID"
 FROM players
 INNER JOIN player_tournament
 ON player_tournament.player_id = players.id
