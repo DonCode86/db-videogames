@@ -117,3 +117,13 @@ FROM reviews
 GROUP BY videogame_id
 ORDER BY AVG(rating) 
 
+-- -------------------------Query con join------------------------------
+
+-- 1- Selezionare i dati di tutti giocatori che hanno scritto 
+-- almeno una recensione, mostrandoli una sola volta (996)
+
+SELECT DISTINCT (players.id)
+FROM reviews
+INNER JOIN players
+ON players.id = reviews.player_id;
+ 
