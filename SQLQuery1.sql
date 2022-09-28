@@ -42,3 +42,7 @@ FROM category_videogame
 where category_id = 2 or category_id = 6
 
 -- 8- Selezionare tutte le recensioni con voto compreso tra 2 e 4 (2947)
+
+SELECT *
+FROM reviews
+where rating > 1 and rating < 5
