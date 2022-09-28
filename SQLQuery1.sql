@@ -46,3 +46,16 @@ where category_id = 2 or category_id = 6
 SELECT *
 FROM reviews
 where rating > 1 and rating < 5
+
+-- 9- Selezionare tutti i dati dei videogiochi rilasciati nell'anno 2020 (46)
+
+SELECT *
+FROM videogames
+where release_date like '%2020%'
+
+-- 10- Selezionare gli id dei videogame che hanno ricevuto 
+-- almeno una recensione da 4 stelle, mostrandoli una sola volta (443)
+
+SELECT DISTINCT videogame_id
+FROM reviews
+where rating > 4
